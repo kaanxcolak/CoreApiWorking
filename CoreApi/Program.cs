@@ -1,11 +1,13 @@
 using AutoMapper.Extensions.ExpressionMapping;
-using BusinessLayer.ImpementationsOfManagers;
 using BusinessLayer.ImplementationsOfManagers;
 using BusinessLayer.InterfacesOfManagers;
 using DataLayer;
 using DataLayer.ImplementationOfRepo;
+using DataLayer.ImplementationsOfRepo;
 using DataLayer.InterfacesOfRepo;
 using EntityLayer.Mapping;
+using EntityLayer.Mappings;
+using EntityLayer.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,10 +15,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MyContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Local"));
+
 });
 
 
-//automapper
+//automapper ayarlarý
 builder.Services.AddAutoMapper(x =>
 {
     x.AddExpressionMapping();
@@ -24,7 +27,8 @@ builder.Services.AddAutoMapper(x =>
 });
 
 
-//Interfacelerin ADDSCOPED þeklindeki yaþam döngüleri eklenecek.
+//interfacelerin AddScoped þeklindeki yaþam döngüleri eklenecek
+
 builder.Services.AddScoped<IStudentRepo, StudentRepo>();
 builder.Services.AddScoped<IStudentManager, StudentManager>();
 

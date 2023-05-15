@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.InterfacesOfManagers;
+using DataLayer.InterfacesOfRepo;
 using EntityLayer.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,18 +7,21 @@ namespace CoreApi.Controllers
 {
     [ApiController]
     [Route("h")]
-    public class HomeController:Controller
+    public class HomeController : Controller
     {
         private readonly IStudentManager _manager;
+
         public HomeController(IStudentManager manager)
         {
             _manager = manager;
         }
 
+
         [HttpGet]
-        [Route("allstudents")]
+        [Route("alls")]
         public IActionResult AllStudents()
         {
+
             try
             {
                 var data = _manager.GetAll();
@@ -29,15 +33,16 @@ namespace CoreApi.Controllers
             }
         }
 
+
         [HttpPost]
-        [Route("action")]
+        [Route("[action]")]
         public IActionResult AddStudent(StudentVM model)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return Problem("Bilgileri eksiksiz girdiğinize emin olun! Tekrar deneyiniz...");
+                    return Problem("Bilgileri eksiksiz girdiğinize emin olun! Tekrar deneyiniz!");
                 }
                 int index = model.Name.IndexOf(' ');
                 model.FirstName = model.Name;
@@ -63,12 +68,13 @@ namespace CoreApi.Controllers
             {
                 if (year == null)
                 {
-                    //Yıl değeri verilmemişse bütün öğrencileri göndersin 
+                    //Yıl değeri verilmemişse bütün öğrencileri göndersin
                     return Problem("Yıl değeri vermediniz!");
                 }
+
                 var result = _manager.GetAll(x =>
-                x.BirthDate !=null && x.BirthDate.Value.Year == year).Data;
-                if (result.Count >0)
+                x.BirthDate != null && x.BirthDate.Value.Year == year).Data;
+                if (result.Count > 0)
                 {
                     return Ok(result);
                 }
@@ -76,7 +82,7 @@ namespace CoreApi.Controllers
                 {
                     return Problem("Uygun veri bulunamadı!");
                 }
-      
+
             }
             catch (Exception ex)
             {

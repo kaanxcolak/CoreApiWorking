@@ -2,11 +2,18 @@
 using BusinessLayer.InterfacesOfManagers;
 using DataLayer.InterfacesOfRepo;
 using EntityLayer.ResultModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BusinessLayer.ImpementationsOfManagers
+namespace BusinessLayer.ImplementationsOfManagers
 {
-    public class Manager<TViewModel, TModel, Id> : IManager<TViewModel, Id> where TViewModel : class, new() where TModel : class, new()
+    public class Manager<TViewModel, TModel, Id> : IManager<TViewModel, Id>
+      where TViewModel : class, new()
+      where TModel : class, new()
     {
         protected readonly IRepository<TModel, Id> _repo;
         protected readonly IMapper _mapper;
@@ -23,14 +30,19 @@ namespace BusinessLayer.ImpementationsOfManagers
         {
             try
             {
-                //Bize parametre olarak gelen DTO'yu repoya gönderemiyoruz. Repoya modelin kendisi gönderilmelidir.
+                //Bize parametre olarak gelen DTO'yu repoya gönderemiyoruz.
+                //Repoya modelin kendisi gönderilmelidir. Bu nedenle mapper ile dönüşüm yaptık.
                 TModel tmodel = _mapper.Map<TViewModel, TModel>(model);
-                int result = _repo.Add(tmodel); //tmodel repo ile veritabanına eklendi tmodelin artık idsi var.
+
+                int result = _repo.Add(tmodel); // tmodel repo ile veritabanına eklendi. tmodel'in artık id'si var.
+
                 TViewModel dataModel = _mapper.Map<TModel, TViewModel>(tmodel);
-                return result > 0 ? new DataResult<TViewModel>(dataModel, "Ekleme işlemi Başarılı", true) :
-                    new DataResult<TViewModel>(model, "Ekleme Başarısız", false);
+
+                return result > 0 ? new DataResult<TViewModel>(success: true, message: "Ekleme işlemi başarılıdır!", data: dataModel) :
+                    new DataResult<TViewModel>(model, "Ekleme BAŞARIRIZ", false);
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
@@ -51,7 +63,7 @@ namespace BusinessLayer.ImpementationsOfManagers
                     return new Result(false);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
@@ -62,11 +74,17 @@ namespace BusinessLayer.ImpementationsOfManagers
         {
             try
             {
-                var fltr = _mapper.Map<Expression<Func<TViewModel, bool>>, Expression<Func<TModel, bool>>>(filter);
+                var fltr = _mapper.Map<Expression<Func<TViewModel, bool>>,
+                                       Expression<Func<TModel, bool>>>(filter);
+
+
                 var data = _repo.GetAll(fltr, _includeRelationalTables?.Split(","));
 
-                ICollection<TViewModel> dataList = _mapper.Map<IQueryable<TModel>, ICollection<TViewModel>>(data);
+                ICollection<TViewModel> dataList =
+                    _mapper.Map<IQueryable<TModel>, ICollection<TViewModel>>(data);
+
                 return new DataResult<ICollection<TViewModel>>(dataList, "", true);
+
             }
             catch (Exception)
             {
@@ -79,17 +97,21 @@ namespace BusinessLayer.ImpementationsOfManagers
         {
             try
             {
-                var fltr = _mapper.Map<Expression<Func<TViewModel, bool>>, Expression<Func<TModel, bool>>>(filter);
+                var fltr = _mapper.Map<Expression<Func<TViewModel, bool>>,
+
+                    Expression<Func<TModel, bool>>>(filter);
+
+
+
                 var data = _repo.GetByConditions(fltr, _includeRelationalTables?.Split(","));
+
                 if (data == null)
                 {
                     return new DataResult<TViewModel>(false, null);
                 }
-                else
-                {
-                    var dataModel = _mapper.Map<TModel, TViewModel>(data);
-                    return new DataResult<TViewModel>(true, dataModel);
-                }
+
+                var dataModel = _mapper.Map<TModel, TViewModel>(data);
+                return new DataResult<TViewModel>(true, dataModel);
             }
             catch (Exception)
             {
@@ -100,20 +122,29 @@ namespace BusinessLayer.ImpementationsOfManagers
 
         public IDataResult<TViewModel> GetById(Id id)
         {
-            if (id == null)
+            try
             {
-                return new DataResult<TViewModel>(false, null);
-            }
-            else
-            {
+                if (id == null)
+                {
+                    return new DataResult<TViewModel>(false, null);
+                }
+
                 var data = _repo.GetById(id);
                 if (data == null)
                 {
-                    return new DataResult<TViewModel>(null, "Kayıt Bulunamadı", false);
-
+                    return new DataResult<TViewModel>(null, "Kayıt bulunamadı!", false);
                 }
-                TViewModel dataModel = _mapper.Map<TModel, TViewModel>(data);
-                return new DataResult<TViewModel>(dataModel, "Kayıt Bulundu", true);
+
+                var dataModel = _mapper.Map<TModel, TViewModel>(data);
+
+                return new DataResult<TViewModel>(dataModel, "Kayıt bulundu", true);
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
@@ -125,14 +156,14 @@ namespace BusinessLayer.ImpementationsOfManagers
                 int result = _repo.Update(tmodel);
                 if (result > 0)
                 {
-                    return new Result(true, "Güncelleme işlemi Başarılı");
+                    return new Result(true, "Güncelleme işlemi yapıldı");
                 }
                 else
                 {
-                    return new Result(false, "Güncelleme işlemi başarısız");
+                    return new Result(false, "Güncelleme işlemi BAŞARISIZ");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
