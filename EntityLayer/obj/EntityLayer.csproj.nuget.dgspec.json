@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\2022-2023\\Software\\CoreApi\\CoreApi\\EntityLayer\\EntityLayer.csproj": {}
+    "D:\\2022-2023\\Software\\Api\\EntityLayer\\EntityLayer.csproj": {}
   },
   "projects": {
-    "D:\\2022-2023\\Software\\CoreApi\\CoreApi\\EntityLayer\\EntityLayer.csproj": {
+    "D:\\2022-2023\\Software\\Api\\EntityLayer\\EntityLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\2022-2023\\Software\\CoreApi\\CoreApi\\EntityLayer\\EntityLayer.csproj",
+        "projectUniqueName": "D:\\2022-2023\\Software\\Api\\EntityLayer\\EntityLayer.csproj",
         "projectName": "EntityLayer",
-        "projectPath": "D:\\2022-2023\\Software\\CoreApi\\CoreApi\\EntityLayer\\EntityLayer.csproj",
+        "projectPath": "D:\\2022-2023\\Software\\Api\\EntityLayer\\EntityLayer.csproj",
         "packagesPath": "C:\\Users\\kaanc\\.nuget\\packages\\",
-        "outputPath": "D:\\2022-2023\\Software\\CoreApi\\CoreApi\\EntityLayer\\obj\\",
+        "outputPath": "D:\\2022-2023\\Software\\Api\\EntityLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kaanc\\AppData\\Roaming\\NuGet\\NuGet.Config",

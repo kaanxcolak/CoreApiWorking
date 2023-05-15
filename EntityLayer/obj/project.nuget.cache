@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TG034ESrsyHWjOLZsv/ypyrpC1eHjFFgT+PRXTWPh5dOR+WBGfJaylhxTESdTAQcvz2IhYsKpNc5vuy3iayfTg==",
+  "dgSpecHash": "RNPV7xvKZmtnSAFUUmT6jB8sUW34SoKzzQP42O0c72m+QB7XGGXRmVhraY1NMjLy0n6K8a7ZdZFQUIo0kPGJ7g==",
   "success": true,
-  "projectFilePath": "D:\\2022-2023\\Software\\CoreApi\\CoreApi\\EntityLayer\\EntityLayer.csproj",
+  "projectFilePath": "D:\\2022-2023\\Software\\Api\\EntityLayer\\EntityLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kaanc\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\kaanc\\.nuget\\packages\\automapper.extensions.expressionmapping\\5.1.0\\automapper.extensions.expressionmapping.5.1.0.nupkg.sha512",
