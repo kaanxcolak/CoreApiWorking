@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CoreApi",
+    "\\CoreApi\\Controllers",
+    "\\DataLayer",
+    "\\EntityLayer"
   ],
-  "SelectedNode": "\\CoreApi.sln",
+  "SelectedNode": "\\CoreApi\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }

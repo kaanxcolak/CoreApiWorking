@@ -1288,6 +1288,25 @@
           }
         }
       },
+      "BusinessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.0",
+          "AutoMapper.Extensions.ExpressionMapping": "5.1.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "DataLayer": "1.0.0",
+          "EntityLayer": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.4"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        }
+      },
       "DataLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3837,6 +3856,11 @@
         "version.txt"
       ]
     },
+    "BusinessLayer/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLayer/BusinessLayer.csproj",
+      "msbuildProject": "../BusinessLayer/BusinessLayer.csproj"
+    },
     "DataLayer/1.0.0": {
       "type": "project",
       "path": "../DataLayer/DataLayer.csproj",
@@ -3853,6 +3877,7 @@
       "AutoMapper >= 11.0.0",
       "AutoMapper.Extensions.ExpressionMapping >= 5.1.0",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
+      "BusinessLayer >= 1.0.0",
       "DataLayer >= 1.0.0",
       "EntityLayer >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.4",
@@ -3889,6 +3914,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "D:\\2022-2023\\Software\\Api\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "D:\\2022-2023\\Software\\Api\\BusinessLayer\\BusinessLayer.csproj"
+            },
             "D:\\2022-2023\\Software\\Api\\DataLayer\\DataLayer.csproj": {
               "projectPath": "D:\\2022-2023\\Software\\Api\\DataLayer\\DataLayer.csproj"
             },

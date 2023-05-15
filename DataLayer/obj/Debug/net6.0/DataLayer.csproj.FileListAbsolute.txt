@@ -1,0 +1,17 @@
+D:\2022-2023\Software\Api\DataLayer\bin\Debug\net6.0\DataLayer.deps.json
+D:\2022-2023\Software\Api\DataLayer\bin\Debug\net6.0\DataLayer.runtimeconfig.json
+D:\2022-2023\Software\Api\DataLayer\bin\Debug\net6.0\DataLayer.dll
+D:\2022-2023\Software\Api\DataLayer\bin\Debug\net6.0\DataLayer.pdb
+D:\2022-2023\Software\Api\DataLayer\bin\Debug\net6.0\EntityLayer.dll
+D:\2022-2023\Software\Api\DataLayer\bin\Debug\net6.0\EntityLayer.pdb
+D:\2022-2023\Software\Api\DataLayer\obj\Debug\net6.0\DataLayer.csproj.AssemblyReference.cache
+D:\2022-2023\Software\Api\DataLayer\obj\Debug\net6.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\2022-2023\Software\Api\DataLayer\obj\Debug\net6.0\DataLayer.AssemblyInfoInputs.cache
+D:\2022-2023\Software\Api\DataLayer\obj\Debug\net6.0\DataLayer.AssemblyInfo.cs
+D:\2022-2023\Software\Api\DataLayer\obj\Debug\net6.0\DataLayer.csproj.CoreCompileInputs.cache
+D:\2022-2023\Software\Api\DataLayer\obj\Debug\net6.0\DataLayer.csproj.CopyComplete
+D:\2022-2023\Software\Api\DataLayer\obj\Debug\net6.0\DataLayer.dll
+D:\2022-2023\Software\Api\DataLayer\obj\Debug\net6.0\refint\DataLayer.dll
+D:\2022-2023\Software\Api\DataLayer\obj\Debug\net6.0\DataLayer.pdb
+D:\2022-2023\Software\Api\DataLayer\obj\Debug\net6.0\DataLayer.genruntimeconfig.cache
+D:\2022-2023\Software\Api\DataLayer\obj\Debug\net6.0\ref\DataLayer.dll
