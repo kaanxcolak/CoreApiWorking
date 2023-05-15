@@ -17,7 +17,7 @@ namespace DataLayer
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Deneme2>(b =>
+            builder.Entity<Deneme2>(b => 
             {
                 b.ToTable("Deneme2Table");
                 b.Property(x => x.Id).ValueGeneratedOnAdd().UseIdentityColumn(20,3);
