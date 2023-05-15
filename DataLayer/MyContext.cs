@@ -9,6 +9,7 @@ namespace DataLayer
         {
             //ctora parametre verdik. Generic parametre Böylece connection string özelliğini OPSİYON olarak Program.cs üzerinden ayarlayacağız.
 
+
         }
         public DbSet<Student>  StudentTable { get; set; }
         public DbSet<Deneme1>  Deneme1 { get; set; }
